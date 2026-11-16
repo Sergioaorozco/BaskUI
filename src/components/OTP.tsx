@@ -93,7 +93,7 @@ export default function OTP() {
             aria-live="polite"
             className={`min-h-5 text-center text-sm text-red-700 ${OTPInvalid ? "visible" : "invisible"}`}
           >
-            Código OTP incorrecto,
+            Código OTP incorrecto.
           </p>
           <p className="text-sm text-indigo-900 text-center my-6">Recibirás un código de 6 dígitos, a través de tu correo o celular.</p>
           <Button onClick={requestOTP} variant="link">
