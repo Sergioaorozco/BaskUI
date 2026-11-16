@@ -26,7 +26,7 @@ function Button({ variant = "primary", children, to, type = "button", onClick }:
     }
 
     return (
-        <button type={type} className={className} onClick={onClick}>
+        <button type={type} className={`${className} text-sm`} onClick={onClick}>
             {children}
         </button>
     )

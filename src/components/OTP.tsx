@@ -29,7 +29,7 @@ export default function OTP() {
         </InputOTP>
       </div>
       <span className="w-full sm:w-1/2">
-        <Button type="submit">Verificar</Button>
+        <Button type="submit">Verificar OTP</Button>
       </span>
     </form>
   )
