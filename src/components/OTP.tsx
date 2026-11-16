@@ -4,10 +4,10 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp"
 
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { REGEXP_ONLY_DIGITS } from "input-otp"
 import Button from "./Button"
-import { ShieldKeyholeIcon, ShieldClose, ShieldCheckIcon, RefreshCwIcon } from 'lucide-react';
+import { ShieldKeyholeIcon, RefreshCwIcon } from 'lucide-react';
 import React from "react";
 
 export default function OTP() {
