@@ -21,7 +21,6 @@ interface InputProps {
 
 
 function Input({ variant = "text", placeholder, value, icon = true, errorMsg, isInvalid = false, onChange }: InputProps) {
-  const [inputValue, setInputValue] = React.useState(value || "");
 
   // Mapping icons and validations
   const iconMap: Record<string, React.ReactNode> = {
@@ -48,14 +47,9 @@ function Input({ variant = "text", placeholder, value, icon = true, errorMsg, is
         <input
           type={variant}
           placeholder={placeholder}
-          value={inputValue}
+          value={value ?? ""}
           className={`pl-12 w-full border rounded-md py-3 px-4 focus:outline-none focus:ring-2 bg-white ${isInvalid ? "border-red-500 focus:ring-red-200" : "border-indigo-700 focus:ring-indigo-200"}`}
-          onChange={(e) => {
-            setInputValue(e.target.value);
-            if (onChange) {
-              onChange(e);
-            }
-          }}
+          onChange={onChange}
         />
       </div>
       <p className="text-red-500 text-sm mt-1">{errorMsg || (isInvalid && errorMap[variant])}</p>
