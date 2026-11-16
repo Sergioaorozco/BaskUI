@@ -75,7 +75,7 @@ function ValidateAccount() {
         <div className="flex gap-2 items-baseline">
           <input id="report-validate" type="checkbox" />
           <label htmlFor="report-validate" className="flex flex-col">
-            <p className="text-neutral-900">Deseo recibir actualización de los reportes</p>
+            <p className="text-neutral-900">Deseo actualización de mis reportes</p>
             <p className="text-xs text-muted-foreground">Acepto el tratamiento de los datos proporcionados</p>
           </label>
         </div>
