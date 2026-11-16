@@ -1,6 +1,7 @@
-import { Phone, Mail } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { Phone, Mail } from "lucide-react";
 import Button from "./Button";
+import Input from "./Input";
 
 export function AccountTabs() {
   return (
@@ -15,38 +16,27 @@ export function AccountTabs() {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="phone">
-        <section className="flex flex-col items-center justify-center gap-2 py-10">
+        <form className="flex flex-col items-center justify-center gap-2 py-10">
           <h2 className="text-lg font-semibold text-indigo-800">Escribe tu Celular</h2>
           <p className=" text-sm font-light text-neutral-700 text-pretty text-center mb-5">Solo validaremos tus datos por motivos de seguridad</p>
-          <div className="relative w-full sm:w-1/2">
-            <Phone className="absolute left-3 top-2.5 text-indigo-500" />
-            <input className="pl-12 w-full border border-indigo-700 rounded-md py-3 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-200 bg-white"
-              type="number"
-              placeholder="Ingresa tu número de celular"
-            />
-          </div>
+          {/* Input Group */}
+          <Input icon="phone" placeholder="Ingresa tu número de celular" variant="number" />
           <div className="mt-4 w-full sm:w-1/2 flex">
             <Button>Continuar</Button>
           </div>
-        </section>
+        </form>
       </TabsContent>
       <TabsContent value="email">
-        <section className="flex flex-col items-center justify-center gap-2 py-10">
+        <form className="flex flex-col items-center justify-center gap-2 py-10">
           <h2 className="text-lg font-semibold text-indigo-800">Escribe tu Email</h2>
           <p className=" text-sm font-light text-neutral-700 text-pretty text-center mb-5">Solo validaremos tus datos por motivos de seguridad</p>
           {/* Input Group */}
-          <div className="relative w-full sm:w-1/2">
-            <Mail className="absolute left-3 top-2.5 text-indigo-500" />
-            <input className="pl-12 w-full border border-indigo-700 rounded-md py-3 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-200 bg-white"
-              type="email"
-              placeholder="Ingresa tu dirección de email"
-            />
-          </div>
+          <Input isInvalid={true} icon="email" placeholder="Ingresa tu dirección de email" variant="email" />
           {/* Buton continuar */}
           <div className="mt-4 w-full sm:w-1/2">
             <Button>Continuar</Button>
           </div>
-        </section>
+        </form>
       </TabsContent>
     </Tabs>
   )
