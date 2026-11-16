@@ -27,7 +27,6 @@ export function AccountTabs() {
   function submitPhone(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    // TODO: Prepare only numbers for payload
     const phoneValue = phone.replace(/\D/g, "");
     if (!phoneValue.trim() || phoneValue.length < 10) {
       setPhoneError(true);
@@ -35,8 +34,8 @@ export function AccountTabs() {
     }
 
     setPhoneError(false);
-        // Success then navigate to OTP page
-    navigate("/account/verify", { state: { phone } });
+    // Success then navigate to OTP page
+    navigate("/account/verify", { state: { phone: phoneValue } });
   }
 
   return (
@@ -57,7 +56,7 @@ export function AccountTabs() {
           <Input
             value={phone}
             onChange={(event) => {
-              setPhone(event.target.value);
+              setPhone(event.target.value.replace(/\D/g, ""));
               if (phoneError) setPhoneError(false);
             }}
             onInvalid={() => setPhoneError(true)}
