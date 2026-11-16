@@ -16,7 +16,7 @@ interface ButtonProps {
 }
 
 function Button({ variant = "primary", children, to, type = "button", onClick }: ButtonProps) {
-    const className = `${variantClasses[variant]} w-full font-bold py-3 px-6 rounded-4xl text-center`;
+    const className = `${variantClasses[variant]} mx-auto w-full sm:w-fit sm:px-32 font-semibold transition-colors duration-300 py-3 px-6 rounded-4xl text-center text-sm cursor-pointer`;
 
     if (to) {
         return (
@@ -27,7 +27,7 @@ function Button({ variant = "primary", children, to, type = "button", onClick }:
     }
 
     return (
-        <button type={type} className={`${className} text-sm cursor-pointer`} onClick={onClick}>
+        <button type={type} className={`${className}`} onClick={onClick}>
             {children}
         </button>
     )

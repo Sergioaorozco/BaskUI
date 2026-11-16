@@ -12,7 +12,7 @@ function Home() {
       <section className="dom-wrapper mx-auto px-5 flex items-center flex-col justify-around gap-2 h-full">
         {/* TODO: make bigger the logo on desktop */}
         <figure className="flex items-center justify-center w-full sm:w-1/2">
-          <img src="/public\assets\bask_logo.png" alt="Bask Logo" height="300" width="300" />
+          <img src="/assets/bask_logo.png" alt="Bask Logo" height="300" width="300" />
         </figure>
         <div className="w-full sm:w-1/2 flex">
           <Button to="/account/link">Crear Reporte</Button>
