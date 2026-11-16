@@ -10,9 +10,16 @@ function Home() {
   return (
     <main className="bg-linear-to-b from-white to-[#DFCCFF] h-dvh w-full">
       <section className="dom-wrapper mx-auto px-5 flex items-center flex-col justify-around gap-2 h-full">
-        {/* TODO: make bigger the logo on desktop */}
         <figure className="flex items-center justify-center w-full sm:w-1/2">
-          <img src="/assets/bask_logo.png" alt="Bask Logo" height="300" width="300" />
+          <img
+            srcSet="
+              /assets/bask_logo_300.png 300w
+              /assets/bask_logo_700.png 700w
+            "
+            src="/assets/bask_logo_300.png"
+            sizes="(min-width: 640px) 50vw, 100vw"
+            alt="Bask Logo"
+          />
         </figure>
         <div className="w-full sm:w-1/2 flex">
           <Button to="/account/link">Crear Reporte</Button>
