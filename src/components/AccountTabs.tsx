@@ -29,9 +29,6 @@ export function AccountTabs() {
 
     // TODO: Prepare only numbers for payload
     const phoneValue = phone.replace(/\D/g, "");
-
-    console.log("Phone value:", phoneValue);
-
     if (!phoneValue.trim()) {
       setPhoneError(true);
       return;

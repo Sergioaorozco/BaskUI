@@ -10,15 +10,15 @@ function Home() {
   return (
     <main className="bg-linear-to-b from-white from-40% to-purple-300 h-dvh w-full">
       <section className="dom-wrapper mx-auto px-5 flex items-center flex-col justify-around gap-2 h-full">
-          <img
-            srcSet="
+        <img
+          srcSet="
               /assets/bask_logo_300.png 300w
               /assets/bask_logo_700.png 700w
             "
-            src="/assets/bask_logo_300.png"
-            sizes="(min-width: 640px) 50vw, 100vw"
-            alt="Bask Logo"
-          />
+          src="/assets/bask_logo_300.png"
+          sizes="(min-width: 640px) 50vw, 100vw"
+          alt="Bask Logo"
+        />
         <div className="w-full sm:w-1/2 flex">
           <Button to="/account/link">Crear Reporte</Button>
         </div>
@@ -67,9 +67,19 @@ function VerifyAccount() {
 function ValidateAccount() {
   return (
     <main className="bg-linear-to-b from-white from-40% to-emerald-100 h-dvh w-full flex items-center place-content-center flex-col gap-2">
-      <div>
-        <ShieldCheckIcon className="text-emerald-600" fill="var(--color-emerald-100)" size={200} strokeWidth={1}  />
-        <p>Test</p>
+      <div className="flex flex-col gap-10 items-center">
+        <div>
+        <ShieldCheckIcon className="text-emerald-600" fill="var(--color-emerald-100)" size={200} strokeWidth={1} />
+        <h1 className="font-semibold text-center text-2xl text-emerald-800">Validación Exitosa</h1>
+        </div>
+        <div className="flex gap-2 items-baseline">
+          <input id="report-validate" type="checkbox" />
+          <label htmlFor="report-validate" className="flex flex-col">
+            <p className="text-neutral-900">Deseo recibir actualización de los reportes</p>
+            <p className="text-xs text-muted-foreground">Acepto el tratamiento de los datos proporcionados</p>
+          </label>
+        </div>
+        <Button type="submit">Comenzar</Button>
       </div>
     </main>
   )
