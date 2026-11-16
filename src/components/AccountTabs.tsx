@@ -3,6 +3,10 @@ import { Phone, Mail } from "lucide-react";
 import Button from "./Button";
 import Input from "./Input";
 
+function submitForm() {
+ // is it better to have independent validaions? validate phone and email independently, or validate both at the same time? 
+}
+
 export function AccountTabs() {
   return (
     <Tabs defaultValue="phone
@@ -20,9 +24,9 @@ export function AccountTabs() {
           <h2 className="text-lg font-semibold text-indigo-800">Escribe tu Celular</h2>
           <p className=" text-sm font-light text-neutral-700 text-pretty text-center mb-5">Solo validaremos tus datos por motivos de seguridad</p>
           {/* Input Group */}
-          <Input icon="phone" placeholder="Ingresa tu número de celular" variant="number" />
+          <Input placeholder="Ingresa tu número de celular" variant="tel" />
           <div className="mt-4 w-full sm:w-1/2 flex">
-            <Button>Continuar</Button>
+            <Button onClick={submitForm}>Continuar</Button>
           </div>
         </form>
       </TabsContent>
@@ -34,7 +38,7 @@ export function AccountTabs() {
           <Input isInvalid={true} icon="email" placeholder="Ingresa tu dirección de email" variant="email" />
           {/* Buton continuar */}
           <div className="mt-4 w-full sm:w-1/2">
-            <Button>Continuar</Button>
+            <Button onClick={submitForm}>Continuar</Button>
           </div>
         </form>
       </TabsContent>
