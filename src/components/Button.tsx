@@ -4,6 +4,7 @@ const variantClasses = {
     primary: "bg-blue-500 hover:bg-blue-700 text-white",
     secondary: "bg-gray-500 hover:bg-gray-700 text-white",
     tertiary: "bg-transparent hover:bg-gray-200 text-gray-700",
+    link: "hover:underline"
 };
 
 interface ButtonProps {
@@ -26,7 +27,7 @@ function Button({ variant = "primary", children, to, type = "button", onClick }:
     }
 
     return (
-        <button type={type} className={`${className} text-sm`} onClick={onClick}>
+        <button type={type} className={`${className} text-sm cursor-pointer`} onClick={onClick}>
             {children}
         </button>
     )
