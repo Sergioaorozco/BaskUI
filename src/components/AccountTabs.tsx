@@ -29,7 +29,7 @@ export function AccountTabs() {
 
     // TODO: Prepare only numbers for payload
     const phoneValue = phone.replace(/\D/g, "");
-    if (!phoneValue.trim()) {
+    if (!phoneValue.trim() || phoneValue.length < 10) {
       setPhoneError(true);
       return;
     }

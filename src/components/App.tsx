@@ -19,7 +19,7 @@ function Home() {
           sizes="(min-width: 640px) 50vw, 100vw"
           alt="Bask Logo"
         />
-        <div className="w-full sm:w-1/2 flex">
+        <div className="w-full sm:w-1/2 flex justify-center">
           <Button to="/account/link">Crear Reporte</Button>
         </div>
       </section>
