@@ -11,6 +11,13 @@ import { ShieldKeyholeIcon, RefreshCwIcon } from 'lucide-react';
 import React, { useEffect } from "react";
 import { toast } from "@/components/ui/toast"
 
+function showDemoOTPToast() {
+  toast.add({
+    title: 'Demo (OTP)',
+    description: '450056'
+  })
+}
+
 export default function OTP() {
   const navigate = useNavigate();
   const [OTPValue, setOTPValue] = React.useState("");
@@ -18,15 +25,13 @@ export default function OTP() {
   const [isProcessing, setIsProcessing] = React.useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      toast.add({
-        title: 'Demo (OTP)',
-        description: '450056'
-      })
-    }, 400)
-
+    const timer = setTimeout(showDemoOTPToast, 400)
     return () => clearTimeout(timer);
-  }, [toast])
+  }, [])
+
+  function requestOTP () {
+    showDemoOTPToast()
+  }
 
   async function processingOTP() {
     if (!OTPValue) {
@@ -91,7 +96,7 @@ export default function OTP() {
             Código OTP incorrecto,
           </p>
           <p className="text-sm text-indigo-900 text-center my-6">Recibirás un código de 6 dígitos, a través de tu correo o celular.</p>
-          <Button variant="link">
+          <Button onClick={requestOTP} variant="link">
             <div className="flex items-center gap-2 justify-center">
               <RefreshCwIcon className="size-4" />
               <span>Reenviar Código</span>

@@ -65,7 +65,7 @@ export function AccountTabs() {
             placeholder="Ingresa tu número de celular"
             variant="tel"
           />
-          <div className="mt-4 w-full sm:w-1/2 flex items-center">
+          <div className="mt-4 w-full sm:w-1/2 flex justify-center">
             <Button type="submit">Continuar</Button>
           </div>
         </form>
@@ -87,7 +87,7 @@ export function AccountTabs() {
             variant="email"
           />
           {/* Buton continuar */}
-          <div className="mt-4 w-full sm:w-1/2 flex items-center">
+          <div className="mt-4 w-full sm:w-1/2 flex justify-center">
             <Button type="submit">Continuar</Button>
           </div>
         </form>
