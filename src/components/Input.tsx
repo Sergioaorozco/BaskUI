@@ -16,11 +16,13 @@ interface InputProps {
   icon?: boolean;
   isInvalid?: boolean;
   errorMsg?: string;
+  required?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onInvalid?: React.FormEventHandler<HTMLInputElement>;
 }
 
 
-function Input({ variant = "text", placeholder, value, icon = true, errorMsg, isInvalid = false, onChange }: InputProps) {
+function Input({ variant = "text", placeholder, value, required = true, icon = true, errorMsg, isInvalid = false, onChange, onInvalid }: InputProps) {
 
   // Mapping icons and validations
   const iconMap: Record<string, React.ReactNode> = {
@@ -48,6 +50,8 @@ function Input({ variant = "text", placeholder, value, icon = true, errorMsg, is
           type={variant}
           placeholder={placeholder}
           value={value ?? ""}
+          required={required}
+          onInvalid={onInvalid}
           className={`pl-12 w-full border rounded-md py-3 px-4 focus:outline-none focus:ring-2 bg-white ${isInvalid ? "border-red-500 focus:ring-red-200" : "border-indigo-700 focus:ring-indigo-200"}`}
           onChange={onChange}
         />

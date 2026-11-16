@@ -3,29 +3,37 @@ import { Phone, Mail } from "lucide-react";
 import Button from "./Button";
 import Input from "./Input";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export function AccountTabs() {
+  const navigate = useNavigate();
   const [phone, setPhone] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phoneError, setPhoneError] = React.useState(false);
   const [emailError, setEmailError] = React.useState(false);
 
-  function submitEmail() {
+  function submitEmail(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     if (!email.trim()) {
       setEmailError(true);
       return;
     }
 
     setEmailError(false);
+    // Success then navigate to OTP page
+    navigate("/account/verify", { state: { email } });
   }
 
-  function submitPhone() {
+  function submitPhone(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     if (!phone.trim()) {
       setPhoneError(true);
       return;
     }
 
     setPhoneError(false);
+        // Success then navigate to OTP page
+    navigate("/account/verify", { state: { phone } });
   }
 
   return (
@@ -39,7 +47,7 @@ export function AccountTabs() {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="phone">
-        <form className="flex flex-col items-center justify-center gap-2 py-10">
+        <form onSubmit={submitPhone} className="flex flex-col items-center justify-center gap-2 py-10">
           <h2 className="text-lg font-semibold text-indigo-800">Escribe tu Celular</h2>
           <p className=" text-sm font-light text-neutral-700 text-pretty text-center mb-5">Solo validaremos tus datos por motivos de seguridad</p>
           {/* Input Group */}
@@ -49,17 +57,18 @@ export function AccountTabs() {
               setPhone(event.target.value);
               if (phoneError) setPhoneError(false);
             }}
+            onInvalid={() => setPhoneError(true)}
             isInvalid={phoneError}
             placeholder="Ingresa tu número de celular"
             variant="tel"
           />
           <div className="mt-4 w-full sm:w-1/2 flex">
-            <Button onClick={submitPhone}>Continuar</Button>
+            <Button type="submit">Continuar</Button>
           </div>
         </form>
       </TabsContent>
       <TabsContent value="email">
-        <form className="flex flex-col items-center justify-center gap-2 py-10">
+        <form onSubmit={submitEmail} className="flex flex-col items-center justify-center gap-2 py-10">
           <h2 className="text-lg font-semibold text-indigo-800">Escribe tu Email</h2>
           <p className=" text-sm font-light text-neutral-700 text-pretty text-center mb-5">Solo validaremos tus datos por motivos de seguridad</p>
           {/* Input Group */}
@@ -69,13 +78,14 @@ export function AccountTabs() {
               setEmail(event.target.value);
               if (emailError) setEmailError(false);
             }}
+            onInvalid={() => setEmailError(true)}
             isInvalid={emailError}
             placeholder="Ingresa tu dirección de email"
             variant="email"
           />
           {/* Buton continuar */}
           <div className="mt-4 w-full sm:w-1/2">
-            <Button onClick={submitEmail}>Continuar</Button>
+            <Button type="submit">Continuar</Button>
           </div>
         </form>
       </TabsContent>

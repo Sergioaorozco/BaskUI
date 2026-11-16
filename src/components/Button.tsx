@@ -10,10 +10,11 @@ interface ButtonProps {
     variant?: keyof typeof variantClasses;
     children: React.ReactNode;
     to?: To;
+    type?: "button" | "submit";
     onClick?: () => void;
 }
 
-function Button({ variant = "primary", children, to, onClick }: ButtonProps) {
+function Button({ variant = "primary", children, to, type = "button", onClick }: ButtonProps) {
     const className = `${variantClasses[variant]} w-full font-bold py-3 px-6 rounded-4xl text-center`;
 
     if (to) {
@@ -25,7 +26,7 @@ function Button({ variant = "primary", children, to, onClick }: ButtonProps) {
     }
 
     return (
-        <button type="button" className={className} onClick={onClick}>
+        <button type={type} className={className} onClick={onClick}>
             {children}
         </button>
     )

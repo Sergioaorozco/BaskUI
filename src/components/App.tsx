@@ -39,11 +39,27 @@ function LinkAccount() {
   )
 }
 
+function VerifyAccount() {
+  return (
+    <main className="bg-linear-to-b from-white to-[#DFCCFF] h-dvh w-full flex items-center flex-col gap-2">
+      <section className="dom-wrapper mx-auto w-full px-5">
+        <nav className="flex justify-center w-full items-center py-8 relative">
+          <Link to="/" className="text-indigo-500 hover:text-indigo-700 font-bold absolute left-0 flex gap-1">
+            <ChevronLeft /><span className="hidden sm:block">Atrás</span>
+          </Link>
+          <h1 className="font-semibold text-center text-2xl text-indigo-800">Verifica tu Cuenta</h1>
+        </nav>
+      </section>
+    </main>
+  )
+}
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/account/link" element={<LinkAccount />}></Route>
+      <Route path="/account/verify" element={<VerifyAccount />}></Route>
     </Routes>
   )
 }
