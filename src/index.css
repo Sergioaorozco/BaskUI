@@ -9,6 +9,10 @@
   max-inline-size: 1125px;
 }
 
+.ui-disabled {
+  @apply pointer-events-none opacity-75
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: 'Inter Variable', sans-serif;

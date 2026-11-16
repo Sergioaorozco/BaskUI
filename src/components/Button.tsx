@@ -1,4 +1,5 @@
 import { Link, type To } from "react-router-dom";
+import { LoaderCircle } from "lucide-react"
 
 const variantClasses = {
     primary: "bg-blue-500 hover:bg-blue-700 text-white",
@@ -12,11 +13,12 @@ interface ButtonProps {
     children: React.ReactNode;
     to?: To;
     type?: "button" | "submit";
+    loading?: boolean;
     onClick?: () => void;
 }
 
-function Button({ variant = "primary", children, to, type = "button", onClick }: ButtonProps) {
-    const className = `${variantClasses[variant]} mx-auto w-full sm:w-fit sm:px-32 font-semibold transition-colors duration-300 py-3 px-6 rounded-4xl text-center text-sm cursor-pointer`;
+function Button({ variant = "primary", children, loading, to, type = "button", onClick }: ButtonProps) {
+    const className = `${variantClasses[variant]} flex gap-2 justify-center w-full sm:w-fit disabled sm:px-32 font-semibold transition-colors duration-300 py-3 px-6 rounded-4xl text-center text-sm cursor-pointer`;
 
     if (to) {
         return (
@@ -27,7 +29,8 @@ function Button({ variant = "primary", children, to, type = "button", onClick }:
     }
 
     return (
-        <button type={type} className={`${className}`} onClick={onClick}>
+        <button type={type} className={`${className} ${loading && "ui-disabled"}`} onClick={onClick}>
+            {loading && <LoaderCircle className="size-4 animate-spin" /> }
             {children}
         </button>
     )
