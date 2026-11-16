@@ -26,7 +26,13 @@ export function AccountTabs() {
 
   function submitPhone(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!phone.trim()) {
+
+    // TODO: Prepare only numbers for payload
+    const phoneValue = phone.replace(/\D/g, "");
+
+    console.log("Phone value:", phoneValue);
+
+    if (!phoneValue.trim()) {
       setPhoneError(true);
       return;
     }

@@ -1,7 +1,8 @@
-import Button from "./Button"
+import Button from "@/components/Button"
 import { Link, Route, Routes, useNavigate } from "react-router-dom"
 import { ChevronLeft } from "lucide-react";
 import { AccountTabs } from "@/components/AccountTabs";
+import OTP from "@/components/OTP";
 
 
 
@@ -50,12 +51,15 @@ function VerifyAccount() {
           </button>
           <h1 className="font-semibold text-center text-2xl text-indigo-800">Verifica tu Cuenta</h1>
         </nav>
+        <article>
+          <OTP />
+        </article>
       </section>
     </main>
   )
 }
 
-function App() {
+export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
@@ -64,5 +68,3 @@ function App() {
     </Routes>
   )
 }
-
-export default App
