@@ -1,5 +1,5 @@
 import Button from "./Button"
-import { Link, Route, Routes } from "react-router-dom"
+import { Link, Route, Routes, useNavigate } from "react-router-dom"
 import { ChevronLeft } from "lucide-react";
 import { AccountTabs } from "@/components/AccountTabs";
 
@@ -40,13 +40,14 @@ function LinkAccount() {
 }
 
 function VerifyAccount() {
+  const navigate = useNavigate();
   return (
     <main className="bg-linear-to-b from-white to-[#DFCCFF] h-dvh w-full flex items-center flex-col gap-2">
       <section className="dom-wrapper mx-auto w-full px-5">
         <nav className="flex justify-center w-full items-center py-8 relative">
-          <Link to="/" className="text-indigo-500 hover:text-indigo-700 font-bold absolute left-0 flex gap-1">
+          <button onClick={() => navigate(-1)} className="text-indigo-500 hover:text-indigo-700 font-bold absolute left-0 flex gap-1">
             <ChevronLeft /><span className="hidden sm:block">Atrás</span>
-          </Link>
+          </button>
           <h1 className="font-semibold text-center text-2xl text-indigo-800">Verifica tu Cuenta</h1>
         </nav>
       </section>
